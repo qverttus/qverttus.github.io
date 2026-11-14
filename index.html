@@ -155,7 +155,6 @@ p.bio {
 </head>
 <body>
 <button class="theme-toggle" id="themeBtn" title="Сменить тему">◐</button>
-
     <div class="container">
         <img src="" class="avatar">
         
@@ -187,6 +186,15 @@ p.bio {
         <footer>
         </footer>
     </div>
-
+<script>
+    const btn = document.getElementById('themeBtn');
+    if (localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark');
+    }
+    btn.addEventListener('click', () => {
+        document.body.classList.toggle('dark');
+        localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+    });
+</script>
 </body>
 </html>
